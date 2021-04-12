@@ -1,41 +1,17 @@
-## Β' Ομάδα Ασκήσεων
+# SchoolSimulator in Java
+📚🧑‍🎓👨‍🏫 A simple school simulator in Java, in which students arrive at a school, which operates for some hours and is evacuated afterwards. The fatigue of the students and the teachers is also computed.
 
-Εκφώνηση: http://cgi.di.uoa.gr/~izambo/OOPassgnJava_2021.pdf
+### General description
 
+A school consists of three floors, a yard and a staircase. Every floor consists of six classrooms and a corridor. Every classroom contains a maximum of Cclass students and a teacher.
+Every student is classified either as a junior or a senior one.
+Every student and teacher has a fatigue meter (Lj for junior students, Ls for senior students, Lt for teachers).
+For every hour a student attends a lesson or a teacher teaches a lesson, the fatigue meter is increased by Lj, Ls or Lt correspondingly.
+Finally, the students and teachers evacuate the school by exiting it.
 
-### Προσωπικά στοιχεία
+In a `main()` function, a school and some students and teachers are created. Then the students the teachers enter at it in a random order and the school operates for N hours. Finally, the school life is printed and then the school is evacuated.
 
-__Όνομα__: Ιωάννης Δραβίλας
-
-__Α.Μ.__: sdi1900053
-
-
-### Documentation
-
-__Άσκηση 2:__
-
-Έχει υλοποιηθεί η άσκηση σύμφωνα με τον τρόπο που περιγράφεται στην εκφώνηση.
-Πιο αναλυτικά, έχουν υλοποιηθεί οι απαραίτητες κλάσεις που περιγράφουν τα αντικείμενα της άσκησης, οι μέθοδοι κάθε κλάσης, καθώς και μια ενδεικτική συνάρτηση main(). Οι κλάσεις κατανέμονται σε δύο πακέτα, ένα πακέτο People κι ένα πακέτο Areas.
-
-Στο πακέτο People μια βασική κλάση Person προσομοιώνει τις βασικές λειτουργίες ενός οποιουδήποτε ανθρώπου του σχολείου, μαθητή ή δασκάλου.
-Στο πακέτο Areas μια βασική κλάση Space προσομοιώνει τις βασικές λειτουργίες ενός οποιουδήποτε χώρου, συμπεριλαμβανομένου του σχολικού κτηρίου.
-
-Παραγόμενες κλάσεις της Person είναι οι Student και Teacher, ενώ η Person δεν περιέχει αφηρημένες μεθόδους, αφού δεν υπάρχει κάποια συνάρτησή της με κοινό όνομα που απαιτείται να οριστεί εκ νέου.
-
-Παραγόμενες κλάσεις της Student είναι οι StudentJunior και StudentSenior.
-
-Παραγόμενες κλάσεις της Space είναι οι School, Classroom, Floor, Corridor, Stairs και Yard. Η Space περιέχει δύο αφηρημένες μεθόδους print() και enter(Student), αφού η Space είναι μια αφηρημένη κλάση που δεν χρειάζεται αυτές τις μεθόδους. Η print() ορίζεται κατόπιν ξεχωριστά σε κάθε παραγόμενη κλάση, αφού για κάθε διαφορετική παραγόμενη κλάση πρέπει να εκτυπώνει διαφορετικό μήνυμα. Η enter(Student) ορίζεται επίσης ξεχωριστά σε κάθε παραγόμενη κλάση, αφού για κάθε χώρο κατά τη λειτουργία της πρέπει να επιτελούνται διαφορετικές λειτουργίες. Η exit() και η place() δεν ορίζονται με παρόμοιο τρόπο ως αφηρημένες μέθοδοι, αφού δεν είναι κοινές για όλες τις παραγόμενες κλάσεις.
-
-Για την υλοποίηση του πίνακα με τους μαθητές κάθε αίθουσας έχει επιλεγεί η χρήση ArrayList, για την δυνατότητα χρήσης των έτοιμων συναρτήσεων της δομής, οι οποίες προσφέρουν μεγαλύτερη κομψότητα στον κώδικα σε σχέση με τις λειτουργίες σε απλό πίνακα δεικτών χωρίς τη χρήση βιβλιοθήκης. Κατ' αυτόν τον τρόπο, η χωρητικότητα των αιθουσών που δίνεται από τη γραμμή εντολών δεν χρησιμοποιείται πρακτικά κάπου εντός της προσομοίωσης, ωστόσο διατηρείται σαν στοιχείο για λόγους συμβατότητας με τις υπόλοιπες αντίστοιχες υλοποιήσεις. Δεν πραγματοποιείται έλεγχος του πλήθους των μαθητών σε μια αίθουσα πριν μπει ο επόμενος, μιας και κάτι τέτοιο δεν ζητείται ρητά από την εκφώνηση:
-«΄Ενας μαθητής μπαίνει στην αίθουσα του τμήματός του (enter) εκτυπώνοντας το όνομά του και το μήνυμα "...enters classroom!" και προστίθεται στους μαθητές της αίθουσας αυτής (δεν γίνεται έλεγχος αν υπάρχει ήδη δάσκαλος στην αίθουσα αυτή). Πλέον η σχετική ένδειξη δηλώνει ότι βρίσκεται εντός του τμήματός του.»
-
-Κατά την πραγματοποίηση της εκκένωσης του σχολικού κτηρίου (μέθοδος empty()), η εκτύπωση του μηνύματος "... starts exiting!" στην floor.exit() πραγματοποιείται αμέσως μετά την εκτύπωση του μηνύματος " exits classroom!", αφού πριν κληθεί η classroom.exit() δεν μπορούμε να γνωρίζουμε ποιος μαθητής θα βγει από την αίθουσα. Θα μπορούσε να επιτευχθεί και το αντίστροφο, να εκτυπώνεται δηλαδή πρώτα το μήνυμα "... starts exiting!", ωστόσο κάτι τέτοιο δεν θα ήταν σύφμωνο με τη λογική της εκφώνησης, σύμφωνα με την οποία η εκτύπωση του συγκεκριμένου μηνύματος ανήκει στην exit() της κλάσης Floor.
-
-Έχει υλοποιηθεί, επίσης, μια συνάρτηση main() σε ξεχωριστό αρχείο, η οποία δημιουργεί ένα σχολείο σύμφωνα με τις προδιαγραφές της εκφώνησης, δύο μαθητές για κάθε αίθουσα (τυχαία επιλογή για λόγους testing) και έναν δάσκαλο για κάθε αίθουσα. Οι μαθητές και οι δάσκαλοι εισάγονται στο σχολείο με τυχαία σειρά με τη χρήση Random(), γι' αυτό και κατά την εκτύπωση του σχολικού κτηρίου, ναι μεν οι ίδιοι μαθητές βρίσκονται πάντα στις ίδιες αίθουσες (αφού αυτό είναι σταθερό από την κατασκευή των αντικειμένων), αλλά η σειρά με την οποία τυπώνονται στην αίθουσα είναι κάθε φορά διαφορετική.
-
-Όλος ο κώδικας είναι αναλυτικά σχολιασμένος και χωρισμένος σε πακέτα, κλάσεις και μεθόδους που καθιστούν την ανάγνωσή του ιδιαίτερα εύκολη.
-
-Μεταγλωττίζουμε τα αρχεία με:<br/>
+Compile with:<br/>
 `javac Areas/Classroom.java`<br/>
 `javac Areas/Corridor.java`<br/>
 `javac Areas/Floor.java`<br/>
@@ -49,4 +25,4 @@ __Άσκηση 2:__
 `javac People/StudentSenior.java`<br/>
 `javac People/Teacher.java`<br/>
 `javac Main.java`<br/>
-Τρέχουμε με `java Main Cclass Lj Ls Lt N`, όπου Cclass η μέγιστη χωρητικότητα κάθε αίθουσας, Lj, Ls και Lt οι μονάδες κατά τις οποίες αυξάνεται ο βαθμός κούρασης των μαθητών μικρών, των μεγάλων τάξεων και των δασκάλων αντίστοιχα και N οι ώρες για τις οποίες λειτουργεί το σχολείο. Π.χ. `java Main 10 1 2 3 10`.
+Execute `java Main Cclass Lj Ls Lt N`, where Cclass is the maximum number of students in each classroom, Lj, Ls and Lt are the fatigue meters according to which the fatigue of the junior and senior students and teachers are increased, and N are the hours for which the school operates. E.g. `java Main 10 1 2 3 10`.
