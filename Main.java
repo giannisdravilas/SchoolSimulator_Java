@@ -15,12 +15,6 @@ public class Main {
         int Ls = Integer.parseInt(args[2]);
         int Lt = Integer.parseInt(args[3]);
         int N = Integer.parseInt(args[4]);
-
-//        int Cclass = 10;
-//        int Lj = 1;
-//        int Ls = 2;
-//        int Lt = 3;
-//        int N = 10;
         
         // Create a yard and a stairs
         Yard yard = new Yard();
