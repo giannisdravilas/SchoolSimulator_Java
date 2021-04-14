@@ -9,7 +9,7 @@ Every student and teacher has a fatigue meter (Lj for junior students, Ls for se
 For every hour a student attends a lesson or a teacher teaches a lesson, the fatigue meter is increased by Lj, Ls or Lt correspondingly.
 Finally, the students and teachers evacuate the school by exiting it.
 
-In a `main()` function, a school and some students and teachers are created. Then the students the teachers enter at it in a random order and the school operates for N hours. Finally, the school life is printed and then the school is evacuated.
+In a `main()` function, a school and some students and teachers are created. Then the students and teachers enter at it in a random order and the school operates for N hours. Finally, the school life is printed and then the school is evacuated.
 
 Compile with:<br/>
 `javac Areas/Classroom.java`<br/>
